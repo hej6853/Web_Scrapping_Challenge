@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mars: Redplanet observations</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
+    </div>
+    <h2>Latest Mars news</h2>
+    <h3>{{mars_data.news_title}}</h3>
+    <p>{{mars_data.news_p}}</p>
+    <h2>Featured Mars Image</h2>
+    <img src="{{mars_data.featured_image}}" alt="featured_img">
+    <h2>Mars hemispheres</h2>
+    
+    <section>
+      <div class="container-fluid">
+        <div class="row">
+          {% for hemispheres in mars_data.hemispheres%}
+          <h3>{{hemispheres.title}}</h3>
+          <img src="{{hemispheres.img_url}}" alt="hemisphere image"style="width:200px;height:200px;">
+          {% endfor %}
+        </div>
+      </div>
+  </section>
+
+    <h2>Mars Facts</h2>
+    <p>{{mars_data.mars_facts| safe}}</p>
+  </div>
+  </div>
+  
+</body>
+
+</html>
